@@ -1,5 +1,5 @@
 # Regression-Regularization-house-price-prediction-
-Linear and Polynomiyal Regression on Califormia housing dataset and using Regularization as a method to decrease variance and prevent overtting.
+Linear and Polynomiyal Regression on Califormia housing dataset and using Regularization as a method to decrease variance and prevent overfitting.
 
 # 🏡 California Housing Price Prediction
 
