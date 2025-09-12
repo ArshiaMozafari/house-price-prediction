@@ -1,7 +1,9 @@
 # Regression-house-price-prediction
 1st file: Linear and Polynomiyal Regression on Califormia housing dataset, using Regularization as a method to reduce variance and prevent overfitting.
+Packages: numpy, pandas, matplotlib, scikit-learn.
 
 2nd file: Multiple regression models: RandomForest, XGBoost, Catboost, ANN.
+Packages: all of those above + tensorflow.
 
 # 🏡 California Housing Price Prediction
 
