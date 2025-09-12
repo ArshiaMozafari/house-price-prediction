@@ -18,7 +18,7 @@ Predict California housing prices using multiple regression models. The dataset 
 - Baseline model.
 - Train R² ≈ 0.61, Test R² ≈ 0.58
 - Underfits due to limited nonlinear modeling.
--With Polynomial features(degree = 3) + lasso regularization it reached test R² = 0.68
+-With Polynomial features(degree = 3) + lasso regularization, it reached test R² = 0.68
 ### 2. Random Forest
 - Ensemble of decision trees.
 - Parameters: n_estimators=500, max_depth=20
