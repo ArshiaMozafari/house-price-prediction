@@ -3,7 +3,7 @@
 ##### Packages: Numpy, Pandas, Matplotlib, Scikit-learn.
 
 #### 2nd file: Multiple regression models: RandomForest, XGBoost, Catboost, ANN.
-##### Packages: All of those above + Tensorflow.
+##### Packages: All of those above + TensorFlow.
 
 # 🏡 California Housing Price Prediction
 
