@@ -1,62 +1,48 @@
-# Regression-Regularization-house-price-prediction-
-Linear and Polynomiyal Regression on Califormia housing dataset, using Regularization as a method to reduce variance and prevent overfitting.
+# Regression-house-price-prediction
+First file: Linear and Polynomiyal Regression on Califormia housing dataset, using Regularization as a method to reduce variance and prevent overfitting.
+Second file: Multiple regression models: RandomForest, XGBoost, Catboost, ANN.
 
 # 🏡 California Housing Price Prediction
 
 This project explores the **California Housing dataset** from [Scikit-learn](https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset) to build and evaluate regression models for predicting median house values.
 
----
+## Overview
+Predict California housing prices using multiple regression models. The dataset contains 8 features and ~20,000 samples. Goal: maximize test R² while avoiding overfitting.
 
-## 📊 Dataset
-- Source: California housing prices (1990 census data).
-- Shape: ~20,000 records × 8 features.
-- Target: `MedHouseVal` (Median House Value, in $100,000s).
-- Features include:
-  - Median Income  
-  - House Age  
-  - Average Rooms  
-  - Average Bedrooms  
-  - Population  
-  - Average Occupancy  
-  - Latitude  
-  - Longitude  
+## Models Tested
 
----
+### 1. Linear Regression
+- Baseline model.
+- Train R² ≈ 0.61, Test R² ≈ 0.58
+- Underfits due to limited nonlinear modeling.
+-With Polynomial features(degree = 3) + lasso regularization it reached test R² = 0.68
+### 2. Random Forest
+- Ensemble of decision trees.
+- Parameters: n_estimators=500, max_depth=20
+- Cross-validation and Test R² ≈ 0.81
+- Good performance; slower on CPU with large trees.
 
-## ⚙️ Methods
-1. **Data Preprocessing**
-   - Train/test split (80/20).
-   - Standardization (`StandardScaler`).
-   - Polynomial feature expansion (degree=2).
-   - Residual analysis (histogram, density plots).
+### 3. XGBoost
+- Gradient boosting trees.
+- Parameters: n_estimators=500, max_depth=8, learning_rate=0.05, subsample=0.8, colsample_bytree=0.7, reg_alpha=1, reg_lambda=3
+- Cross-validation R² ≈ 0.85, Test R² ≈ 0.86
+- Best tree-based performance; needs more trees due to weaker regularization.
 
-2. **Models Tried**
-   - Linear Regression  
-   - Lasso Regression (with cross-validation for alpha)  
-   - Ridge Regression  
+### 4. CatBoost
+- Gradient boosting optimized for categorical/numerical data.
+- Parameters: iterations=1000, depth=8, learning_rate=0.05, l2_leaf_reg=3
+- Cross-validation and Test R² ≈ 0.85
+- Similar to XGBoost; requires more iterations.
 
-3. **Evaluation Metrics**
-   - R² (coefficient of determination)  
-   - MSE (mean squared error)  
-   - MAE (mean absolute error)  
+### 5. Artificial Neural Network (ANN)
+- Fully connected network: 128 → 64 → 32 → 1 (ReLU, linear output)
+- Optimizer: Adam, learning_rate=0.0005
+- Regularization: L2 (λ=0.0005 on first layer)
+- EarlyStopping: patience=15
+- Train R² ≈ 0.81, Test R² ≈ 0.79
 
----
-
-## 📈 Results
-- **Linear Regression (degree=1):** R² ≈ 0.57 (test)
-- **Polynomial Regression (degree=2):** R² ≈ 0.64 (test)
-- **Polynomial Regression (degree=3):** Overfitting (R² < 0 on test)
-- **Lasso (α = 0.001, degree=2):** R² ≈ 0.66 (test), sparse coefficients
-- **Ridge (degree=2):** R² ≈ 0.64 (test)
-
-🔎 **Best model:** Polynomial Regression (degree=2, with Lasso regularization) → R² ≈ **0.66** on test data.  
-
----
-
-## 📉 Error Analysis
-- Residuals mostly lie between **-2 and 2** (≈ ±$200k).  
-- Residual distribution is approximately normal, centered at 0.  
-- Model tends to struggle with extreme house values.  
-
----
+## Key Insights
+1. Tree-based models outperform ANN on this dataset.
+2. ANN performance sensitive to layers, neurons, L2, learning rate, and scaling.
+3. Maximum achievable test R² is ~0.85 with current features.
 
