@@ -42,7 +42,7 @@ Predict California housing prices using multiple regression models. The dataset 
 - Optimizer: Adam, learning_rate=0.0005
 - Regularization: L2 (λ=0.0005 on first layer)
 - EarlyStopping: patience=15
-- Train R² ≈ 0.81, Test R² ≈ 0.79
+- Train R² ≈ 0.83, Test R² ≈ 0.80
 
 ## Key Insights
 1. Tree-based models outperform ANN on this dataset.
